@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 346 77% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
+    --ring: 263 70% 50%;
+
+    --radius: 0.75rem;
+
+    /* Anime-specific colors */
+    --anime-purple: 263 70% 50%;
+    --anime-blue: 217 91% 60%;
+    --anime-pink: 346 77% 50%;
+    --anime-orange: 25 95% 53%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(263 70% 50% / 0.9), hsl(217 91% 60% / 0.9));
+    --gradient-card: linear-gradient(180deg, hsl(240 10% 6%), hsl(240 10% 8%));
+    --gradient-overlay: linear-gradient(0deg, hsl(240 10% 3.9%) 0%, transparent 100%);
+    
+    /* Effects */
+    --glow-purple: 0 0 30px hsl(263 70% 50% / 0.4);
+    --glow-blue: 0 0 30px hsl(217 91% 60% / 0.4);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .light {
+    --background: 0 0% 99%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 4.8% 92%;
+    --muted-foreground: 240 3.8% 32%;
+
+    --accent: 346 77% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 88%;
+    --input: 240 5.9% 88%;
+    --ring: 263 70% 50%;
+
+    /* Anime-specific colors - vibrant for light mode */
+    --anime-purple: 263 70% 45%;
+    --anime-blue: 217 91% 55%;
+    --anime-pink: 346 77% 48%;
+    --anime-orange: 25 95% 48%;
+    
+    /* Gradients - adjusted for light mode with better contrast */
+    --gradient-hero: linear-gradient(135deg, hsl(263 70% 45% / 0.85), hsl(217 91% 55% / 0.85));
+    --gradient-card: linear-gradient(180deg, hsl(240 5% 99%), hsl(240 8% 96%));
+    --gradient-overlay: linear-gradient(0deg, hsl(240 10% 99%) 0%, rgba(240, 10, 99, 0.1) 100%);
+    
+    /* Effects - stronger shadows for light mode */
+    --glow-purple: 0 0 50px hsl(263 70% 45% / 0.35), 0 0 100px hsl(263 70% 45% / 0.15);
+    --glow-blue: 0 0 50px hsl(217 91% 55% / 0.35), 0 0 100px hsl(217 91% 55% / 0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Smooth theme transition */
+  html {
+    transition: color-scheme 0.3s ease;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  html:not(.dark) {
+    color-scheme: light;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-anime-purple to-anime-blue bg-clip-text text-transparent;
+  }
+  
+  .light .gradient-text {
+    background: linear-gradient(to right, hsl(263 70% 45%), hsl(217 91% 55%));
+    @apply bg-clip-text text-transparent;
+  }
+  
+  .hover-glow {
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--glow-purple);
+    transform: translateY(-2px);
+  }
+  
+  .light .hover-glow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .light .hover-glow:hover {
+    box-shadow: var(--glow-purple), 0 20px 25px rgba(0, 0, 0, 0.08);
+  }
+  
+  .anime-card {
+    @apply bg-card rounded-lg overflow-hidden transition-all duration-300;
+    @apply hover:scale-105 hover:shadow-lg;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .anime-card:hover {
+    box-shadow: 0 20px 30px hsl(var(--anime-purple) / 0.2), 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+  
+  .light .anime-card {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .light .anime-card:hover {
+    box-shadow: 0 20px 35px hsl(var(--anime-purple) / 0.25), 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Text animations */
+  .text-shimmer {
+    background-size: 200% 100%;
+    animation: text-shimmer 3s linear infinite;
+  }
+
+  /* Responsive spacing adjustments */
+  @media (max-width: 768px) {
+    .container {
+      @apply px-4;
+    }
+  }
+
+  /* Utility for gradient borders */
+  .border-gradient {
+    position: relative;
+    background: linear-gradient(white, white) padding-box, linear-gradient(135deg, hsl(263 70% 50%), hsl(217 91% 60%)) border-box;
+    border: 2px solid transparent;
+  }
+
+  .light .border-gradient {
+    background: linear-gradient(white, white) padding-box, linear-gradient(135deg, hsl(263 70% 45%), hsl(217 91% 55%)) border-box;
+  }
+
+  /* Scroll behavior optimization */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+
+  .light ::selection {
+    @apply bg-primary/20 text-foreground;
+  }
+}
