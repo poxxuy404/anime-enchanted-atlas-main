@@ -43,11 +43,18 @@ All colors MUST be HSL.
     --anime-blue: 217 91% 60%;
     --anime-pink: 346 77% 50%;
     --anime-orange: 25 95% 53%;
+    --anime-cyan: 180 85% 55%;
+    --anime-magenta: 320 85% 50%;
+    --anime-lime: 90 85% 50%;
+    --anime-red: 0 85% 55%;
+    --anime-turquoise: 170 90% 50%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(263 70% 50% / 0.9), hsl(217 91% 60% / 0.9));
+    --gradient-hero: linear-gradient(135deg, hsl(263 70% 50% / 0.9), hsl(217 91% 60% / 0.9), hsl(180 85% 55% / 0.9), hsl(320 85% 50% / 0.9));
     --gradient-card: linear-gradient(180deg, hsl(240 10% 6%), hsl(240 10% 8%));
     --gradient-overlay: linear-gradient(0deg, hsl(240 10% 3.9%) 0%, transparent 100%);
+    --gradient-rainbow: linear-gradient(90deg, hsl(0 85% 55%), hsl(25 95% 53%), hsl(90 85% 50%), hsl(180 85% 55%), hsl(217 91% 60%), hsl(263 70% 50%), hsl(320 85% 50%));
+    --gradient-vibrant: linear-gradient(135deg, hsl(320 85% 50%), hsl(263 70% 50%), hsl(180 85% 55%), hsl(90 85% 50%));
 
     /* Effects - colorful shadows */
     --glow-purple: 0 0 30px hsl(263 70% 50% / 0.4), 0 0 60px hsl(263 70% 50% / 0.2);
@@ -60,51 +67,61 @@ All colors MUST be HSL.
   }
 
   .light {
-    --background: 0 0% 97%;
-    --foreground: 240 8% 20%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 10%;
 
-    --card: 0 0% 98%;
-    --card-foreground: 240 8% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
 
-    --popover: 0 0% 98%;
-    --popover-foreground: 240 8% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
 
-    --primary: 263 50% 52%;
+    --primary: 263 80% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 60% 56%;
+    --secondary: 217 100% 55%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 5% 87%;
-    --muted-foreground: 240 5% 42%;
+    --muted: 240 5% 88%;
+    --muted-foreground: 240 5% 35%;
 
-    --accent: 346 60% 54%;
+    --accent: 346 90% 52%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 70% 48%;
+    --destructive: 0 85% 48%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 3% 83%;
-    --input: 240 3% 83%;
-    --ring: 263 50% 52%;
+    --border: 240 5% 85%;
+    --input: 240 5% 85%;
+    --ring: 263 80% 50%;
 
-    /* Anime-specific colors - muted for light mode */
-    --anime-purple: 263 45% 48%;
-    --anime-blue: 217 55% 50%;
-    --anime-pink: 346 55% 50%;
-    --anime-orange: 25 80% 48%;
+    /* Anime-specific colors - VIBRANT for light mode */
+    --anime-purple: 263 85% 45%;
+    --anime-blue: 217 95% 50%;
+    --anime-pink: 346 85% 55%;
+    --anime-orange: 25 95% 48%;
+    --anime-red: 0 95% 50%;
+    --anime-cyan: 180 95% 45%;
+    --anime-magenta: 320 90% 48%;
+    --anime-lime: 90 95% 45%;
+    --anime-turquoise: 170 95% 45%;
 
-    /* Gradients - soft for light mode */
-    --gradient-hero: linear-gradient(135deg, hsl(263 45% 48% / 0.75), hsl(217 55% 50% / 0.75));
-    --gradient-card: linear-gradient(180deg, hsl(240 3% 99%), hsl(240 5% 94%));
-    --gradient-overlay: linear-gradient(0deg, hsl(240 8% 97%) 0%, rgba(240, 120, 200, 0.05) 100%);
+    /* Gradients - vibrant for light mode */
+    --gradient-hero: linear-gradient(135deg, hsl(263 85% 45% / 0.9), hsl(217 95% 50% / 0.9), hsl(180 95% 45% / 0.9), hsl(320 90% 48% / 0.9));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(240 5% 97%));
+    --gradient-overlay: linear-gradient(0deg, hsl(0 0% 100%) 0%, rgba(263, 85, 115, 0.08) 100%);
+    --gradient-rainbow: linear-gradient(90deg, hsl(0 95% 50%), hsl(25 95% 48%), hsl(90 95% 45%), hsl(180 95% 45%), hsl(217 95% 50%), hsl(263 85% 45%), hsl(320 90% 48%));
+    --gradient-vibrant: linear-gradient(135deg, hsl(320 90% 48%), hsl(263 85% 45%), hsl(180 95% 45%), hsl(90 95% 45%));
 
-    /* Effects - softer glow for light mode */
-    --glow-purple: 0 0 40px hsl(263 45% 48% / 0.25), 0 0 80px hsl(263 45% 48% / 0.1);
-    --glow-blue: 0 0 40px hsl(217 55% 50% / 0.25), 0 0 80px hsl(217 55% 50% / 0.1);
-    --shadow-purple-pink: 0 8px 20px hsl(263 50% 48% / 0.25), 0 4px 12px hsl(346 60% 50% / 0.18);
-    --shadow-blue-purple: 0 8px 20px hsl(217 55% 50% / 0.2), 0 4px 12px hsl(263 50% 48% / 0.15);
-    --shadow-neon: 0 10px 30px hsl(263 50% 48% / 0.2), 0 8px 24px hsl(217 55% 50% / 0.12), 0 4px 12px hsl(346 60% 50% / 0.08);
+    /* Effects - vibrant glow for light mode */
+    --glow-purple: 0 0 40px hsl(263 85% 45% / 0.35), 0 0 80px hsl(263 85% 45% / 0.15);
+    --glow-blue: 0 0 40px hsl(217 95% 50% / 0.35), 0 0 80px hsl(217 95% 50% / 0.15);
+    --shadow-purple-pink: 0 8px 20px hsl(263 85% 45% / 0.3), 0 4px 12px hsl(346 85% 55% / 0.25);
+    --shadow-blue-purple: 0 8px 20px hsl(217 95% 50% / 0.3), 0 4px 12px hsl(263 85% 45% / 0.25);
+    --shadow-neon: 0 10px 30px hsl(263 85% 45% / 0.3), 0 8px 24px hsl(217 95% 50% / 0.2), 0 4px 12px hsl(346 85% 55% / 0.15);
+    --shadow-cyan-magenta: 0 8px 20px hsl(180 95% 45% / 0.3), 0 4px 12px hsl(320 90% 48% / 0.25);
+    --shadow-lime-purple: 0 8px 20px hsl(90 95% 45% / 0.3), 0 4px 12px hsl(263 85% 45% / 0.25);
+    --shadow-rainbow: 0 10px 30px hsl(0 95% 50% / 0.25), 0 8px 24px hsl(320 90% 48% / 0.18), 0 4px 12px hsl(180 95% 45% / 0.12);
   }
 }
 
@@ -140,7 +157,7 @@ All colors MUST be HSL.
   }
 
   .light .gradient-text {
-    background: linear-gradient(to right, hsl(263 70% 45%), hsl(217 91% 55%));
+    background: linear-gradient(to right, hsl(263 85% 45%), hsl(217 95% 50%), hsl(346 85% 55%));
     @apply bg-clip-text text-transparent;
   }
 
@@ -233,6 +250,27 @@ All colors MUST be HSL.
 
   .shadow-purple-pink {
     box-shadow: var(--shadow-purple-pink);
+  }
+
+  .shadow-cyan-magenta {
+    box-shadow: var(--shadow-cyan-magenta);
+  }
+
+  .shadow-lime-purple {
+    box-shadow: var(--shadow-lime-purple);
+  }
+
+  .shadow-rainbow {
+    box-shadow: var(--shadow-rainbow);
+  }
+
+  /* Gradient utilities */
+  .gradient-rainbow {
+    background: var(--gradient-rainbow);
+  }
+
+  .gradient-vibrant {
+    background: var(--gradient-vibrant);
   }
 
   /* Apply colorful shadows to common elements */
