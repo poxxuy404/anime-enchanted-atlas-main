@@ -49,9 +49,12 @@ All colors MUST be HSL.
     --gradient-card: linear-gradient(180deg, hsl(240 10% 6%), hsl(240 10% 8%));
     --gradient-overlay: linear-gradient(0deg, hsl(240 10% 3.9%) 0%, transparent 100%);
 
-    /* Effects */
-    --glow-purple: 0 0 30px hsl(263 70% 50% / 0.4);
-    --glow-blue: 0 0 30px hsl(217 91% 60% / 0.4);
+    /* Effects - colorful shadows */
+    --glow-purple: 0 0 30px hsl(263 70% 50% / 0.4), 0 0 60px hsl(263 70% 50% / 0.2);
+    --glow-blue: 0 0 30px hsl(217 91% 60% / 0.4), 0 0 60px hsl(217 91% 60% / 0.2);
+    --shadow-purple-pink: 0 8px 16px hsl(263 70% 50% / 0.3), 0 4px 12px hsl(346 77% 50% / 0.2);
+    --shadow-blue-purple: 0 8px 16px hsl(217 91% 60% / 0.3), 0 4px 12px hsl(263 70% 50% / 0.2);
+    --shadow-neon: 0 10px 30px hsl(263 70% 50% / 0.25), 0 8px 24px hsl(217 91% 60% / 0.15), 0 4px 12px hsl(346 77% 50% / 0.1);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -99,6 +102,9 @@ All colors MUST be HSL.
     /* Effects - softer glow for light mode */
     --glow-purple: 0 0 40px hsl(263 45% 48% / 0.25), 0 0 80px hsl(263 45% 48% / 0.1);
     --glow-blue: 0 0 40px hsl(217 55% 50% / 0.25), 0 0 80px hsl(217 55% 50% / 0.1);
+    --shadow-purple-pink: 0 8px 20px hsl(263 50% 48% / 0.25), 0 4px 12px hsl(346 60% 50% / 0.18);
+    --shadow-blue-purple: 0 8px 20px hsl(217 55% 50% / 0.2), 0 4px 12px hsl(263 50% 48% / 0.15);
+    --shadow-neon: 0 10px 30px hsl(263 50% 48% / 0.2), 0 8px 24px hsl(217 55% 50% / 0.12), 0 4px 12px hsl(346 60% 50% / 0.08);
   }
 }
 
@@ -140,38 +146,38 @@ All colors MUST be HSL.
 
   .hover-glow {
     transition: var(--transition-smooth);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    box-shadow: var(--shadow-blue-purple);
   }
 
   .hover-glow:hover {
-    box-shadow: var(--glow-purple);
+    box-shadow: var(--shadow-neon);
     transform: translateY(-2px);
   }
 
   .light .hover-glow {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-blue-purple);
   }
 
   .light .hover-glow:hover {
-    box-shadow: var(--glow-purple), 0 20px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-neon);
   }
 
   .anime-card {
     @apply bg-card rounded-lg overflow-hidden transition-all duration-300;
     @apply hover:scale-105 hover:shadow-lg;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-blue-purple);
   }
 
   .anime-card:hover {
-    box-shadow: 0 20px 30px hsl(var(--anime-purple) / 0.2), 0 4px 16px rgba(0, 0, 0, 0.12);
+    box-shadow: var(--shadow-neon);
   }
 
   .light .anime-card {
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-purple-pink);
   }
 
   .light .anime-card:hover {
-    box-shadow: 0 20px 35px hsl(var(--anime-purple) / 0.25), 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-neon);
   }
 
   /* Text animations */
@@ -214,6 +220,28 @@ All colors MUST be HSL.
 
   .light .p-6 {
     padding: 1rem;
+  }
+
+  /* Colorful shadow utilities */
+  .shadow-neon {
+    box-shadow: var(--shadow-neon);
+  }
+
+  .shadow-blue-purple {
+    box-shadow: var(--shadow-blue-purple);
+  }
+
+  .shadow-purple-pink {
+    box-shadow: var(--shadow-purple-pink);
+  }
+
+  /* Apply colorful shadows to common elements */
+  .shadow-2xl {
+    box-shadow: var(--shadow-neon) !important;
+  }
+
+  .shadow-lg {
+    box-shadow: var(--shadow-blue-purple) !important;
   }
 
   /* Utility for gradient borders */
